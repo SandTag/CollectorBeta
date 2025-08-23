@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import downfall.util.TextureLoader;
 import expansioncontent.expansionContentMod;
+import hermit.util.Wiz;
 
 import static utilityClasses.Wiz.*;
 
@@ -24,10 +25,24 @@ public class EmeraldTorch extends CustomRelic {
 
     @Override
     public void atBattleStart() {
-//        this.counter = 1;
+      this.counter = 3;
         this.grayscale = false;
     }
 
+    @Override
+    public void atTurnStart() {
+        super.atTurnStart();
+        if (counter > 0){
+            flash();
+            Wiz.atb(new DrawCardAction(1));
+            counter--;
+            if (counter == 0){
+                this.grayscale = true;
+            }
+        }
+    }
+
+    /*
     @Override
     public void onExhaust(AbstractCard card) {
         if (card.tags.contains(expansionContentMod.KINDLING)) {
@@ -38,6 +53,10 @@ public class EmeraldTorch extends CustomRelic {
             }
         }
     }
+
+     */
+
+
 
     @Override
     public void atTurnStartPostDraw(){

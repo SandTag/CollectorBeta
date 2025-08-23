@@ -121,6 +121,7 @@ public class CollectorChar extends CustomPlayer {
         }
         retVal.add(Condemn.ID);
         retVal.add(FuelTheFire.ID);
+        retVal.add(SpiritLeech.ID);
         return retVal;
     }
 
