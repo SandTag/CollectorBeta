@@ -2,7 +2,10 @@ package collector.relics;
 
 import basemod.AutoAdd;
 import basemod.abstracts.CustomRelic;
+import basemod.helpers.CardModifierManager;
 import collector.CollectorMod;
+import collector.cardmods.ActuallyCollectedCardMod;
+import collector.cardmods.CollectedCardMod;
 import collector.cards.collectibles.CollectorCard;
 import collector.patches.CollectiblesPatches.CollectibleCardColorEnumPatch;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
@@ -46,6 +49,10 @@ public class TheContract extends CustomRelic {
                 cards.remove(cardC);
                 add(cardC);
             }};
+            card.forEach(c -> {
+                CardModifierManager.addModifier(c, new CollectedCardMod());
+                CardModifierManager.addModifier(c, new ActuallyCollectedCardMod());
+            });
             DFL.atb(new SpecialClauseDiscoveryAction(card, false));
         }));
         DFL.atb(new RelicAboveCreatureAction(DFL.pl(), this));

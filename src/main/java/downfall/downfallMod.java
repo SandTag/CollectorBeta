@@ -787,6 +787,8 @@ public class downfallMod implements OnPlayerDamagedSubscriber, OnStartBattleSubs
             crossoverCharacters = config.getBool(PROP_CHAR_CROSSOVER);
             crossoverModCharacters = config.getBool(PROP_MOD_CHAR_CROSSOVER);
             useIconsForAppliedProperties = config.getBool(PROP_ICONS_FOR_APPLIED_PROPERTIES);
+            makeCollectorWorse = config.getBool(PROP_BAD_COLLECTOR);
+
         } catch (Exception e) {
             e.printStackTrace();
             clearData();

@@ -16,14 +16,12 @@ public class beginningCollectible extends AbstractCollectibleCard {
 
     public beginningCollectible() {
         super(ID, -2, CardType.SKILL, CardRarity.BASIC, CardTarget.NONE);
-//        baseDamage = 1;
         baseMagicNumber = magicNumber = 1;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         tags.add(expansionContentMod.UNPLAYABLE);
         tags.add(expansionContentMod.KINDLING);
+        this.isInnate = true;
         this.selfRetain = true;
-//        this.exhaust = true;
-//        this.isEthereal = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

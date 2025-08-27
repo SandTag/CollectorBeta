@@ -16,7 +16,7 @@ public class FungiBeastCard extends AbstractCollectibleCard {
     public FungiBeastCard() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.ENEMY);
         baseMagicNumber = magicNumber = 1;
-        baseSecondMagic = secondMagic = 3;
+        baseSecondMagic = secondMagic = 4;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 

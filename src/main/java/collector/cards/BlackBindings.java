@@ -21,35 +21,22 @@ public class BlackBindings extends AbstractCollectorCard {
     public BlackBindings() {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.ENEMY);
         baseMagicNumber = magicNumber = 2;
-        baseSecondMagic = secondMagic = 2;
+        baseSecondMagic = secondMagic = 3;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         AbstractDungeon.actionManager.addToBottom(new VFXAction(new EntangleEffect(p.hb.cX + 70.0F * Settings.scale, p.hb.cY + 10.0F * Settings.scale, m.hb.cX, m.hb.cY), 0.5F));
-        if (isAfflicted(m)){
-            applyToEnemy(m, new WeakPower(m, magicNumber, false));
+        if (m.hasPower(WeakPower.POWER_ID)){
+            //applyToEnemy(m, new WeakPower(m, magicNumber, false));
             applyToEnemyTop(m, new DoomPower(m, secondMagic));
         }
         applyToEnemy(m, new WeakPower(m, magicNumber, false));
-        applyToEnemyTop(m, new DoomPower(m, secondMagic));
-        /*
-        atb(new AbstractGameAction() {
-            @Override
-            public void update() {
-                isDone = true;
-                for (AbstractPower q : m.powers) {
-                    if (q.type == AbstractPower.PowerType.DEBUFF) {
-                        applyToEnemyTop(m, new DoomPower(m, secondMagic));
-                    }
-                }
-            }
-        });
-         */
+        applyToEnemy(m, new DoomPower(m, magicNumber));
     }
 
     public void upp() {
+        upgradeMagicNumber(1);
         upgradeSecondMagic(2);
-//        upgradeMagicNumber(1);
     }
 
     @Override //zhs card text thing

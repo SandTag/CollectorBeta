@@ -3,6 +3,7 @@
     "NAME": "Emerald Torch",
     "FLAVOR": "The fires of greed never fade.",
     "DESCRIPTIONS": [
+      "The first time each combat you #yExhaust a #ycollector:Kindling [REMOVE_SPACE], gain #b1 #ycollector:Reserve [REMOVE_SPACE].",
       "At the start of your first #b3 turns draw #b1 card."
     ]
   },
@@ -12,7 +13,8 @@
     "FLAVOR": "The ever-changing flames reflect fortune's favor.",
     "DESCRIPTIONS": [
       "Replaces ",
-      "[] [REMOVE_SPACE]. The first time each turn you #yExhaust a #ycollector:Kindling draw #b2 card."
+      "[] [REMOVE_SPACE]. The first time each turn you #yExhaust a #ycollector:Kindling gain #b1 #ycollector:Reserve [REMOVE_SPACE].",
+      "[] [REMOVE_SPACE]. The first time each turn you #yExhaust a #ycollector:Kindling draw #b2 cards."
     ]
   },
 
@@ -120,7 +122,7 @@
     "NAME": "Rough Diamond",
     "FLAVOR": "With the mines demolished, even this tarnished stone is valuable.",
     "DESCRIPTIONS": [
-      "The first time you play a #yRare card each turn, gain [E] . Upon pickup, obtain a #yRare card reward.",
+      "The first time you play a Rare card each turn, gain [E] [REMOVE_SPACE]. NL Rare cards are twice as common and Uncommon cards are half as common.",
       "Knowledge!"
     ]
   },
@@ -129,7 +131,8 @@
     "NAME": "Blocked Chakra",
     "FLAVOR": "One pulled muscle is all it takes.",
     "DESCRIPTIONS": [
-      "At the start of your turn, gain [E] [REMOVE_SPACE]. #yCollected cards no longer provide draw."
+      "At the start of your turn, gain [E] [REMOVE_SPACE]. #yCollected cards no longer provide draw.",
+      "At the start of your turn, gain [E] and draw #b1 less card."
     ]
   },
 
@@ -137,7 +140,8 @@
     "NAME": "Soul Extractor",
     "FLAVOR": "Energy only for those most determined.",
     "DESCRIPTIONS": [
-      "At the start of your turn, gain [E] [REMOVE_SPACE]. NL #yCollected cards #ystslib:Purge when played."
+      "At the start of your turn, gain [E] [REMOVE_SPACE]. NL #yCollected cards #ystslib:Purge when played.",
+      "At the start of your turn, gain [E] [REMOVE_SPACE]. NL #yCollected cards are #ystslib:Grave [REMOVE_SPACE]."
     ]
   }
 }

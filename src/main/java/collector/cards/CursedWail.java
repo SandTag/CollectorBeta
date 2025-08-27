@@ -19,8 +19,8 @@ public class CursedWail extends AbstractCollectorCard {
 
     public CursedWail() {
         super(ID, 2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
-        baseMagicNumber = magicNumber = 7;
-        baseSecondMagic = secondMagic = 5;
+        baseMagicNumber = magicNumber = 6;
+        baseSecondMagic = secondMagic = 4;
         exhaust = true;
     }
 
@@ -40,15 +40,13 @@ public class CursedWail extends AbstractCollectorCard {
         });
 
         forAllMonstersLiving(q -> {
-            if (isAfflicted(q)) {
                 applyToEnemy(q, new DoomPower(q, secondMagic));
-            }
         });
     }
 
     public void upp() {
-        upgradeMagicNumber(3);
-        upgradeSecondMagic(4);
+        upgradeMagicNumber(2);
+        upgradeSecondMagic(3);
     }
 
     @Override

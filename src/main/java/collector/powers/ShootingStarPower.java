@@ -28,7 +28,6 @@ public class ShootingStarPower extends AbstractCollectorPower implements OnPyreP
             flash();
             pyresThisTurn++;
             AbstractCard copy = card.makeStatEquivalentCopy();
-//            copy.freeToPlayOnce = true; - Kindling's are unplayable anyway.
             addToBot(new MakeTempCardInHandAction(copy, true));
         }
     }

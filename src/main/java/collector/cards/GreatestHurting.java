@@ -29,7 +29,7 @@ public class GreatestHurting extends AbstractCollectorCard {//Go to line 144 of 
             if (this.upgraded) {
                 atb(new VFXAction(new PurpleSearingBlowEffect(m.hb.cX, m.hb.cY, 13)));
                 loss(m, AbstractGameAction.AttackEffect.NONE, targetLoss);
-                if (isAfflicted(m)) {
+                if (countDebuffs(m)) {
                     atb(new VFXAction(new SearingBlowEffect(m.hb.cX, m.hb.cY, 13)));
                     loss(m, AbstractGameAction.AttackEffect.NONE, targetLoss);
                 }
@@ -38,6 +38,19 @@ public class GreatestHurting extends AbstractCollectorCard {//Go to line 144 of 
                 loss(m, AbstractGameAction.AttackEffect.NONE, targetLoss);
             }
         }
+    }
+
+    private boolean countDebuffs (AbstractMonster m){
+        int count = 0;
+        for (AbstractPower p : m.powers){
+            if (p.type == AbstractPower.PowerType.DEBUFF){
+                count ++;
+                if (count >= 4){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     public void upp() {

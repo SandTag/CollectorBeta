@@ -48,6 +48,9 @@ public class SentryCard extends AbstractCollectibleCard {
     @Override
     public void triggerOnExhaust(){
         SentryWave card = new SentryWave();
+        if (this.upgraded){
+            card.upgrade();
+        }
         CardModifierManager.addModifier(card, new CollectedCardMod());
         CardModifierManager.addModifier(card, new ActuallyCollectedCardMod());
         atb(new MakeTempCardInHandAction(card ,1));

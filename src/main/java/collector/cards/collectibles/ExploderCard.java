@@ -27,7 +27,7 @@ public class ExploderCard extends AbstractCollectibleCard {
         super(ID, -2, CardType.SKILL, CardRarity.COMMON, CardTarget.NONE);
 //        baseDamage = 15;
         baseMagicNumber = magicNumber = 8;
-        baseSecondMagic = secondMagic = 4;
+        baseSecondMagic = secondMagic = 5;
         tags.add(expansionContentMod.UNPLAYABLE);
         tags.add(expansionContentMod.KINDLING);
         this.selfRetain = true;
@@ -54,7 +54,7 @@ public class ExploderCard extends AbstractCollectibleCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(2);
-        upgradeSecondMagic(1);
+        upgradeMagicNumber(3);
+        upgradeSecondMagic(3);
     }
 }

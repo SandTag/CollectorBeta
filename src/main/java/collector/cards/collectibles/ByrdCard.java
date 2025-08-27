@@ -27,7 +27,7 @@ public class ByrdCard extends AbstractCollectibleCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(1);
-//        this.isEthereal = false;
+        upgradeDamage(1);
+        uDesc();
     }
 }

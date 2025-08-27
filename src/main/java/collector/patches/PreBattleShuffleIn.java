@@ -5,7 +5,9 @@ import collector.CollectorChar;
 import collector.CollectorCollection;
 import collector.cardmods.ActuallyCollectedCardMod;
 import collector.powers.CollectDraw;
+import collector.relics.BlockedChakra;
 import collector.relics.BottledCollectible;
+import collector.relics.SoulExtractor;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -15,6 +17,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import downfall.downfallMod;
 import utilityClasses.DFL;
 import utilityClasses.Later.LaterAction;
+import java.util.ArrayList;
 
 @SpirePatch(clz = AbstractPlayer.class, method = "applyStartOfCombatPreDrawLogic")
 public class PreBattleShuffleIn {
@@ -23,11 +26,22 @@ public class PreBattleShuffleIn {
     public static void Prefix(AbstractPlayer __instance) {
 
         if (AbstractDungeon.player.chosenClass.equals(CollectorChar.Enums.THE_COLLECTOR) && !CollectorCollection.collection.group.isEmpty()) {
+            System.out.println("Hello from the pre battle shuffle in.");
             for (AbstractCard collectible : CollectorCollection.collection.group) {
                 if (!CardModifierManager.hasModifier(collectible, ActuallyCollectedCardMod.ID)) {
                     CardModifierManager.addModifier(collectible, new ActuallyCollectedCardMod());
                 }
-                DFL.pl().drawPile.addToRandomSpot(collectible.makeSameInstanceOf());
+
+                if (downfallMod.makeCollectorWorse && DFL.pl().hasRelic(SoulExtractor.ID)){
+                    if (collectible.isInnate){
+                        DFL.pl().drawPile.addToRandomSpot(collectible.makeSameInstanceOf());
+                    }else {
+                        DFL.pl().discardPile.addToRandomSpot(collectible.makeSameInstanceOf());
+                    }
+
+                }else{
+                    DFL.pl().drawPile.addToRandomSpot(collectible.makeSameInstanceOf());
+                }
             }
 
             //Dealing with innate
@@ -51,8 +65,14 @@ public class PreBattleShuffleIn {
                 }
             }));
 
-            if (!downfallMod.makeCollectorWorse) {
-                CollectDraw popme = new CollectDraw(CollectorCollection.collection.size());
+            if (!downfallMod.makeCollectorWorse || !DFL.pl().hasRelic(BlockedChakra.ID)) {//On Challenge Mode the Blocked Chakra has a different effect.
+                ArrayList<String> vals = new ArrayList<>();
+                for (AbstractCard c : CollectorCollection.collection.group){
+                    if (!vals.contains(c.cardID)){
+                        vals.add(c.cardID);
+                    }
+                }
+                CollectDraw popme = new CollectDraw(vals.size());
                 DFL.att(new ApplyPowerAction(__instance, __instance, popme));
                 DFL.atb(new LaterAction(popme::atStartOfTurn));
             }

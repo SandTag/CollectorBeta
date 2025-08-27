@@ -15,8 +15,8 @@ public class TangerineCollectedCard extends AbstractCollectibleCard {
     public TangerineCollectedCard() {
         super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         baseMagicNumber = magicNumber = 1;
-        baseBlock = 5;
-        baseSecondMagic = secondMagic = 4;
+        baseBlock = 4;
+        baseSecondMagic = secondMagic = 5;
 //        this.tags.add(SneckoMod.BANNEDFORSNECKO);
 //        Will this cause issues? Maybe.
 //        Will it be funny if snecko rolls this? Yes.
@@ -39,7 +39,7 @@ public class TangerineCollectedCard extends AbstractCollectibleCard {
 
     public void upp() {
         upgradeBlock(2);
-        upgradeMagicNumber(1);
+//        upgradeMagicNumber(1);
         upgradeSecondMagic(1);
 //        uDesc();
     }

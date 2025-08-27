@@ -37,7 +37,7 @@
   },
   "collector:BlackBindings": {
     "NAME": "Black Bindings",
-    "DESCRIPTION": "Apply !M! Weak, then apply !clm2! collector:Doom. NL Repeat if the target was already collector:Afflicted."
+    "DESCRIPTION": "If the target has Weak apply !clm2! collector:Doom. NL Apply !M! Weak and collector:Doom."
   },
   "collector:Blightning": {
     "NAME": "Blightning",
@@ -78,7 +78,7 @@
   },
   "collector:CursedWail": {
     "NAME": "Cursed Wail",
-    "DESCRIPTION": "ALL enemies lose !M! Strength this turn. NL collector:Afflicted enemies gain !clm2! collector:Doom. NL Exhaust."
+    "DESCRIPTION": "ALL enemies lose !M! Strength this turn and gain !clm2! collector:Doom. NL Exhaust."
   },
   "collector:DarkApotheosis": {
     "NAME": "Dark Genesis",
@@ -178,7 +178,7 @@
   },
   "collector:Goodbye": {
     "NAME": "Goodbye",
-    "DESCRIPTION": "Enemy loses !M! Strength. NL Apply !clm2! collector:Doom. NL Exhaust."
+    "DESCRIPTION": "Enemy loses !M! Strength. NL Apply !clm2! Weak. NL Exhaust."
   },
   "collector:GourmandsGaze": {
     "NAME": "Gourmand's Gaze",
@@ -192,7 +192,7 @@
   "collector:GreatestHurting": {
     "NAME": "Maleficence",
     "DESCRIPTION": "Retain. NL Target loses HP equal to its collector:Doom.",
-    "UPGRADE_DESCRIPTION": "Retain. NL Target loses HP equal to its collector:Doom. NL Repeat if target is collector:Afflicted."
+    "UPGRADE_DESCRIPTION": "Retain. NL Target loses HP equal to its collector:Doom, twice if it has 4 or more debuffs."
   },
 
   "collector:Hurting2": {
@@ -221,7 +221,7 @@
   },
   "collector:Heatwave": {
     "NAME": "Heat Wave",
-    "DESCRIPTION": "Deal !D! damage and Apply !M! Vulnerable to ALL enemies."
+    "DESCRIPTION": "Deal !D! damage and apply !M! Vulnerable to ALL enemies."
   },
   "collector:Hoard": {
     "NAME": "Hoard",
@@ -248,7 +248,7 @@
   },
   "collector:InflictAgony": {
     "NAME": "Inflict Agony",
-    "DESCRIPTION": "Deal !D! damage. NL If the enemy is not collector:Afflicted, apply !M! Weak and Vulnerable."
+    "DESCRIPTION": "Deal !D! damage. NL If the enemy has no Weak, apply !M! Weak. Repeat for Vulnerable."
   },
   "collector:Invigorate": {
     "NAME": "Flash",
@@ -277,7 +277,7 @@
   },
   "collector:Karma": {
     "NAME": "Karma",
-    "DESCRIPTION": "At the end of your turn, if an enemy is collector:Afflicted, gain !M! Block."
+    "DESCRIPTION": "At the end of your turn, gain !M! Block for each unique debuff across EVERYONE."
   },
   "collector:LanternFlare": {
     "NAME": "Lantern Flare",
@@ -325,7 +325,7 @@
   },
   "collector:Pyromancy": {
     "NAME": "Pyremancy",
-    "DESCRIPTION": "At the start of your turn collector:Pyre. NL If the card was a collector:Kindling, gain !M! collector:Reserve."
+    "DESCRIPTION": "The first time each turn you collector:Pyre a non collector:Kindling card each turn, gain !M! collector:Reserve."
   },
   "collector:RagingCall": {
     "NAME": "Clanging Call",
@@ -355,7 +355,7 @@
   },
   "collector:ScorchingRay": {
     "NAME": "Scorching Ray",
-    "DESCRIPTION": "Apply !M! collector:Doom X times."
+    "DESCRIPTION": "Deal !D! damage !M! times. Each unblocked hit Exhausts a random Curse or Status card from anywhere."
   },
   "collector:SeedOfDoubt": {
     "NAME": "Seed of Doubt",
@@ -390,8 +390,8 @@
   },
   "collector:SpiritLeech": {
     "NAME": "Spirit Leech",
-    "DESCRIPTION": "Deal !D! damage. NL Prevent the next time Doom would be removed from the target.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Prevent the next time Doom would be removed from the target."
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! collector:Reserve next turn.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage. NL Gain !M! collector:Reserve next turn."
   },
   "collector:StashAway": {
     "NAME": "Stash Away",
@@ -479,7 +479,7 @@
   "collector:ByrdCard": {
     "NAME": "Byrd",
     "DESCRIPTION": "Deal !D! damage !M! times. NL Exhaust.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage !M! times. NL Exhaust."
+    "UPGRADE_DESCRIPTION": "Deal !D! damage !M! times."
   },
   "collector:CenturionCard": {
     "NAME": "Centurion",
@@ -724,7 +724,8 @@
   },
   "collector:ThievesCard": {
     "NAME": "Thieves",
-    "DESCRIPTION": "Take !M! less damage from attacks this turn. NL Exhaust."
+    "DESCRIPTION": "Steal !M! Strength. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "Steal !M! Strength from ALL enemies. NL Exhaust."
   },
   "collector:TorchHeadCard": {
     "NAME": "Torch Head",
@@ -766,8 +767,8 @@
   },
   "collector:beginningCollectible": {
     "NAME": "Lil Essence",
-    "DESCRIPTION": "collector:Kindling. NL Apply !M! Weak to ALL enemies.",
-    "UPGRADE_DESCRIPTION": "collector:Kindling. NL Apply !M! Weak to ALL enemies.",
+    "DESCRIPTION": "Innate. NL collector:Kindling. NL Apply !M! Weak to ALL enemies.",
+    "UPGRADE_DESCRIPTION": "Innate. NL collector:Kindling. NL Apply !M! Weak to ALL enemies.",
     "EXTENDED_DESCRIPTION": [
       "I must light this kindling to use it."
     ]

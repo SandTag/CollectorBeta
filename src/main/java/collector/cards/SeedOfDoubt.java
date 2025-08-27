@@ -35,7 +35,7 @@ public class SeedOfDoubt extends AbstractCollectorCard implements OnOtherCardExh
     }
 
     public void upp() {
-        //upgradeMagicNumber(2);
-        upgradeSecondMagic(2);
+        upgradeMagicNumber(1);
+        upgradeSecondMagic(1);
     }
 }

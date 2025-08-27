@@ -11,7 +11,13 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.BufferPower;
+import com.megacrit.cardcrawl.powers.IntangiblePower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import utilityClasses.DFL;
+import utilityClasses.Later.LaterAction;
 
 import static utilityClasses.Wiz.atb;
 import static utilityClasses.Wiz.isAfflicted;
@@ -55,26 +61,43 @@ public class DoomPower extends AbstractCollectorPower implements HealthBarRender
     public void explode() {
         this.flashWithoutSound();
         System.out.println("DEBUG: Checking Affliction.");
-        if (isAfflicted((AbstractMonster) this.owner)) {         System.out.println("DEBUG: Affliction confirmed.");
+        if (isAfflicted((AbstractMonster) this.owner)) {
+            System.out.println("DEBUG: Affliction confirmed.");
         } else {
             if (this.owner.hasPower(DemisePower.POWER_ID)) {
                 System.out.println("DEBUG: There is no Affliction. Reducing DemisePower by 1.");
                 atb(new ReducePowerAction(this.owner, this.owner, DemisePower.POWER_ID, 1));
             } else {
-                System.out.println("DEBUG: There is no Affliction. Removing DoomPower");
-                this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+                if (!this.owner.hasPower(WeakPower.POWER_ID)) {
+                    if (this.amount < 2) {
+                        System.out.println("DEBUG: Doom is 1 or 0 (?), removing... [Weak Step]");
+                        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+                    }else{
+                        DFL.atb(new ReducePowerAction(this.owner, null, this, this.amount/2));
+                    }
+                }
+                if (!this.owner.hasPower(VulnerablePower.POWER_ID)) {
+                    if (this.amount < 2) {
+                        System.out.println("DEBUG: Doom is 1 or 0 (?), removing... [Vulnerable Step]");
+                        this.addToBot(new RemoveSpecificPowerAction(this.owner, this.owner, this));
+                    }else{
+                        DFL.atb(new LaterAction(()->{//Vuln step needs later action to prevent it queing up with the wrong amnt and removing 100% of doom which is not intended!
+                            DFL.atb(new ReducePowerAction(this.owner, null, this, this.amount/2));
+                        }));
+                    }
+                }
             }
         }
 
         if (AbstractDungeon.player.hasRelic(JadeRing.ID)) {
-            if (amount+6 >= owner.currentHealth) {
+            if (amount+6 >= owner.currentHealth && (!this.owner.hasPower(IntangiblePower.POWER_ID) || this.owner.currentHealth == 1) && !this.owner.hasPower(BufferPower.POWER_ID)) {// Fixed bell noise on nemesis interaction.
                 System.out.println("DEBUG: Kill SFX with Jade Ring.");
                 CardCrawlGame.sound.playA("BELL", MathUtils.random(-0.2F, -0.3F));
             }
         }
 
         if (!(AbstractDungeon.player.hasRelic(JadeRing.ID))) {
-            if (amount >= owner.currentHealth) {
+            if (amount >= owner.currentHealth && (!this.owner.hasPower(IntangiblePower.POWER_ID) || this.owner.currentHealth == 1) && !this.owner.hasPower(BufferPower.POWER_ID)) {
                 System.out.println("DEBUG: Kill SFX without Jade Ring.");
                 CardCrawlGame.sound.playA("BELL", MathUtils.random(-0.2F, -0.3F));
             }

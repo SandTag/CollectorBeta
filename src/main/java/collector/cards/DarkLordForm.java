@@ -18,8 +18,8 @@ public class DarkLordForm extends AbstractCollectorCard {
     public DarkLordForm() {
         super(ID, 3, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
         tags.add(BaseModCardTags.FORM);
-        this.baseMagicNumber = magicNumber = 8;
-        this.baseSecondMagic = secondMagic = 4;
+        this.baseMagicNumber = magicNumber = 6;
+        this.baseSecondMagic = secondMagic = 2;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
@@ -33,7 +33,7 @@ public class DarkLordForm extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeMagicNumber(2);
+        upgradeMagicNumber(3);
         upgradeSecondMagic(1);
         //upgradeBaseCost(3);
 //        uDesc();

@@ -28,36 +28,41 @@ public class RoughDiamond extends CustomRelic {
     }
 
     public void onEquip() {
-        AbstractDungeon.getCurrRoom().rewards.add(new RareCardReward(AbstractDungeon.player.getCardColor()));
-        AbstractDungeon.combatRewardScreen.open(this.DESCRIPTIONS[1]);
-        AbstractDungeon.getCurrRoom().rewardPopOutTimer = 0.0F;
-        AbstractDungeon.combatRewardScreen.rewards.remove(AbstractDungeon.combatRewardScreen.rewards.size()-1);
+//        AbstractDungeon.getCurrRoom().rewards.add(new RareCardReward(AbstractDungeon.player.getCardColor()));
+//        AbstractDungeon.combatRewardScreen.open(this.DESCRIPTIONS[1]);
+//        AbstractDungeon.getCurrRoom().rewardPopOutTimer = 0.0F;
+//        AbstractDungeon.combatRewardScreen.rewards.remove(AbstractDungeon.combatRewardScreen.rewards.size()-1);
     }
 
+    @Override
+    public int changeRareCardRewardChance(int rareCardChance) {
+        return (rareCardChance * 2);
+    }
+
+    @Override
+    public int changeUncommonCardRewardChance(int uncommonCardChance) {
+        return Math.round(uncommonCardChance / 2.0f);
+    }
 
     @Override
     public void onVictory() {
-        stopPulse();
+        this.grayscale = false;
     }
 
     public void atTurnStart() {
         this.triggeredThisTurn = false;
-        beginLongPulse();
+        this.grayscale = false;
     }
 
     public void onUseCard(AbstractCard card, UseCardAction action) {
             if (card.rarity == AbstractCard.CardRarity.RARE) {
                 if (!this.triggeredThisTurn) {
                     this.triggeredThisTurn = true;
-                    stopPulse();
                 flash();
+                this.grayscale = true;
                 this.addToBot(new GainEnergyAction(1));
             }
         }
-    }
-
-    public boolean canSpawn() {
-        return ((AbstractDungeon.floorNum > 1)); // you cannot boss swap into this relic
     }
 
     @Override

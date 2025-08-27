@@ -24,7 +24,7 @@ public class Roast extends AbstractCollectorCard implements OnPyreCard, Collecto
 
     public Roast() {//Hello extremely overrated card.
         super(ID, 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 6;
+        baseDamage = 5;
         baseMagicNumber = magicNumber = 1;
         cardsToPreview = new Ember();
         isPyre();

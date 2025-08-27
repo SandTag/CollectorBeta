@@ -5,6 +5,7 @@ import collector.actions.PyreAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import expansioncontent.expansionContentMod;
 import utilityClasses.DFL;
 import utilityClasses.Later.LaterAction;
 
@@ -19,32 +20,32 @@ public class CracklePower extends AbstractCollectorPower implements OnPyrePower 
         super(NAME, TYPE, TURN_BASED, AbstractDungeon.player, null, addAmount);
     }
 
+    int pyresThisTurn = 0;
+
+    @Override
+    public void atStartOfTurn() {
+        pyresThisTurn = 0;
+    }
+
     @Override
     public void atStartOfTurnPostDraw() {
-        DFL.atb(new LaterAction(()->{
+        DFL.atb(new LaterAction(() -> {
             flash();
             if (!AbstractDungeon.player.hand.isEmpty()) {
-                for (int a = 0; a < amount; a++){
-                    PyreAction action = new PyreAction();
-                    lastActionCalled = action;
-                    addToTop(action);
-                }
+                PyreAction action = new PyreAction();
+                lastActionCalled = action;
+                addToTop(action);
             }
         }));
     }
 
     @Override
     public void onPyre(AbstractCard card) {
-        DFL.att(new LaterAction(()->{
-        if (lastActionCalled != null) {
-            if (lastActionCalled instanceof PyreAction){
-                if (((PyreAction) lastActionCalled).lastCardWasKindling()){
-                    DFL.atb(new GainReservesAction(1));
-                }
-            }
-            lastActionCalled = null;
+        if (pyresThisTurn < amount && !card.tags.contains(expansionContentMod.KINDLING)) {
+            flash();
+            pyresThisTurn++;
+            DFL.atb(new GainReservesAction(1));
         }
-        }));
     }
 
 }

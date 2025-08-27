@@ -14,8 +14,8 @@ public class SapStrength extends AbstractCollectorCard {
 
     public SapStrength() {//Current name - Doomed Strike.
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 6;
-        this.magicNumber = this.baseMagicNumber = 4;
+        baseDamage = 4;
+        this.magicNumber = this.baseMagicNumber = 5;
 //        this.tags.add(CardTags.STRIKE);
     }
 
@@ -25,7 +25,7 @@ public class SapStrength extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeDamage(2);
-        upgradeMagicNumber(1);
+        upgradeDamage(1);
+        upgradeMagicNumber(2);
     }
 }

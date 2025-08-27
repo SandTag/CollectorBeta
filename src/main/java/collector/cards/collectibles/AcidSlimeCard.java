@@ -21,8 +21,8 @@ public class AcidSlimeCard extends AbstractCollectibleCard {
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         //addToBot(new RemoveAllBlockAction(m, p));
-        applyToEnemy(m, new WeakPower(m, magicNumber, false));
         dmg(m, AbstractGameAction.AttackEffect.POISON);
+        applyToEnemy(m, new WeakPower(m, magicNumber, false));
     }
 
 

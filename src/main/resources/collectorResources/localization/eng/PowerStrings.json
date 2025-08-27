@@ -24,9 +24,9 @@
   "collector:Crackle": {
     "NAME": "Pyromancy",
     "DESCRIPTIONS": [
-      "At the start of your turn, #yPyre [REMOVE_SPACE]. NL [#ff9407]Gain[] #b1 [#ff9407]Reserve[] [REMOVE_SPACE].",
-      "At the start of your turn, #yPyre #b",
-      " Times. NL [#ff9407]Gain[] #b1 [#ff9407]Reserve[] [REMOVE_SPACE]."
+      "The first time each turn you, #yPyre a card that is not #yKindling [REMOVE_SPACE], [#ff9407]Gain[] #b1 [#ff9407]Reserve[] [REMOVE_SPACE].",
+      "The #b",
+      " times each turn you, #yPyre a card that is not #yKindling [REMOVE_SPACE], [#ff9407]Gain[] #b1 [#ff9407]Reserve[] [REMOVE_SPACE]."
     ]
   },
   "collector:DarkLordFormPower": {
@@ -60,7 +60,7 @@
     "NAME": "Doom",
     "DESCRIPTIONS": [
       "Loses #b",
-      " HP at the start of its turn, removing all #yDoom unless they are #yAfflicted."
+      " HP at the start of its turn. Decays by half if the enemy is not #yWeak [REMOVE_SPACE], and half if they are not #yVulnerable [REMOVE_SPACE]."
     ]
   },
   "collector:DoublePlayCollectibles": {
@@ -97,8 +97,8 @@
   "collector:Karma": {
     "NAME": "Karma",
     "DESCRIPTIONS": [
-      "At the end of your turn, if any enemy is #yAfflicted [REMOVE_SPACE], gain #b",
-      " #yBlock."
+      "At the end of your turn, gain #b",
+      " #yBlock for each unique negative effect ANYONE has."
     ]
   },
   "collector:NextAttackAppliesDoom": {
@@ -191,17 +191,17 @@
     "DESCRIPTIONS": [
       "Whenever you deal #yAttack damage, Torch Head: NL ",
       "Applies #b",
-      " #yDoom to a random enemy.",
+      " #yDoom to a random enemy. ",
       "Upgrade #b",
-      " random card(s) in your hand.",
+      " random card(s) in your hand. ",
       "Grants you #b",
-      " #yBlock.",
-      " #yPoison to a random enemy.",
+      " #yBlock. ",
+      " #yPoison to a random enemy. ",
       "Draws you #b",
-      " card.",
-      " cards.",
-      "Gain #b",
-      " #yTemporary #yStrength."
+      " card. ",
+      " cards. ",
+      "Grants you #b",
+      " #yTemporary #yStrength. "
     ]
   },
   "collector:IncreasedCollectionDraw": {
@@ -351,9 +351,9 @@
   "collector:CollectDraw": {
     "NAME": "Hoarder's Draw",
     "DESCRIPTIONS": [
-      "At the start of your next turn draw #b1 card. NL Effect lasts longer with more collected cards.",
+      "At the start of your next turn draw #b1 card. NL Effect lasts longer with more unique collected cards.",
       "At the start of your next #b",
-      " turns draw #b1 card. NL Effect lasts longer with more collected cards."
+      " turns draw #b1 card. NL Effect lasts longer with more unique collected cards."
     ]
   }
 }

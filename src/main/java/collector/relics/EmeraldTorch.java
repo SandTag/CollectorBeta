@@ -7,6 +7,7 @@ import collector.actions.GainReservesAction;
 import collector.cards.Ember;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import downfall.downfallMod;
 import downfall.util.TextureLoader;
 import expansioncontent.expansionContentMod;
 import utilityClasses.DFL;
@@ -21,23 +22,39 @@ public class EmeraldTorch extends CustomRelic {
     public EmeraldTorch() {
         super(ID, TextureLoader.getTexture(CollectorMod.makeRelicPath(IMG_PATH)), TextureLoader.getTexture(CollectorMod.makeRelicOutlinePath(OUTLINE_IMG_PATH)), RelicTier.STARTER, LandingSound.MAGICAL);
         this.counter = -1;
+        getUpdatedDescription();
+    }
+
+    @Override
+    public void onEquip() {
+        getUpdatedDescription();
+    }
+
+    @Override
+    public void update(){
+        super.update();
+        getUpdatedDescription();
     }
 
     @Override
     public void atBattleStart() {
-        this.counter = 3;
+        if (downfallMod.makeCollectorWorse) {
+            this.counter = 3;
+        }else{
+            this.counter = -1;
+        }
         this.grayscale = false;
     }
 
     @Override
     public void onExhaust(AbstractCard card) {
-//        if (card.tags.contains(expansionContentMod.KINDLING)) {
-//            if (!grayscale) {
-//                flash();
-//                this.grayscale = true;
-//                atb(new DrawCardAction(2));
-//           }
-//        }
+        if (card.tags.contains(expansionContentMod.KINDLING)) {
+            if (!grayscale) {
+               flash();
+                this.grayscale = true;
+                atb(new GainReservesAction(1));
+           }
+        }
     }
 
     @Override
@@ -49,6 +66,9 @@ public class EmeraldTorch extends CustomRelic {
             DFL.atb(new DrawCardAction(1));
 //            Ember em = new Ember();
 //            makeInHand(em.makeCopy(), 1);
+            if (this.counter < 0 && downfallMod.makeCollectorWorse){
+                this.counter = 0;
+            }
             if (this.counter == 0) {
                 this.grayscale = true;
             }
@@ -64,6 +84,9 @@ public class EmeraldTorch extends CustomRelic {
 
     @Override
     public String getUpdatedDescription() {
+        if (downfallMod.makeCollectorWorse){
+            return DESCRIPTIONS[1];
+        }
         return DESCRIPTIONS[0];
     }
 }

@@ -14,7 +14,7 @@ public class LouseCard extends AbstractCollectibleCard {
 
     public LouseCard() {
         super(ID, -2, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
-        baseBlock = 4;
+        baseBlock = 3;
 //        this.baseMagicNumber = magicNumber = 1;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         tags.add(expansionContentMod.UNPLAYABLE);

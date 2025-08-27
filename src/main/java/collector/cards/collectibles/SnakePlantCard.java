@@ -19,7 +19,7 @@ public class SnakePlantCard extends AbstractCollectibleCard {
 
     public SnakePlantCard() {
         super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 6;
+        baseDamage = 7;
         baseMagicNumber = magicNumber = 3;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         //exhaust = true;

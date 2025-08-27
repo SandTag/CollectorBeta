@@ -1,11 +1,11 @@
 package collector.powers;
 
-import utilityClasses.Wiz;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import utilityClasses.DFL;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-
-import static utilityClasses.Wiz.isAfflicted;
+import java.util.ArrayList;
 
 public class KarmaPower extends AbstractCollectorPower {
     public static final String NAME = "Karma";
@@ -19,25 +19,26 @@ public class KarmaPower extends AbstractCollectorPower {
 
     @Override
     public void atEndOfTurnPreEndTurnCards(boolean isPlayer) {
-        if (Wiz.getEnemies().stream().anyMatch(q -> {
-            if (isAfflicted(q)) {
-                return true;
-            }
-            return false;
-        })) {
 
-            flash();
-            for (final AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-                if (!mo.isDeadOrEscaped()) {
-                    if (isAfflicted(mo)) {
-                        addToBot(new GainBlockAction(owner, amount));
-                        return;
-                    }
+        ArrayList<String> debuffNames = new ArrayList<>();
+        for (AbstractPower pow : DFL.pl().powers){
+            if (!debuffNames.contains(pow.ID) && pow.type == PowerType.DEBUFF){
+                debuffNames.add(pow.ID);
+            }
+        }
+
+        for (AbstractMonster mon : DFL.activeMonsterList()) {
+            for (AbstractPower pow : mon.powers) {
+                if (!debuffNames.contains(pow.ID) && pow.type == PowerType.DEBUFF) {
+                    debuffNames.add(pow.ID);
                 }
             }
-
-            //addToBot(new GainBlockAction(owner, amount));
         }
+
+        if (!debuffNames.isEmpty()) {
+            addToBot(new GainBlockAction(owner, (debuffNames.size()*amount)));
+        }
+
     }
 
     @Override

@@ -9,6 +9,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 import expansioncontent.expansionContentMod;
+import utilityClasses.DFL;
+import utilityClasses.Later.LaterAction;
 
 import static collector.CollectorMod.makeID;
 import static utilityClasses.Wiz.*;
@@ -27,41 +29,37 @@ public class JadedJabs extends AbstractCollectorCard implements OnPyreCard, Coll
         isPyre();
     }
 
-    private int toAdd = -1;
+
 
     public void use(AbstractPlayer p, AbstractMonster m) {
         dmg(m, AbstractGameAction.AttackEffect.FIRE);
-        AbstractCard q = new Shiv();
-        if (this.upgraded){
-            q.upgrade();
-        }
-//        makeInHand(q, magicNumber);
-        atb(new AbstractGameAction() {
-            @Override
-            public void update() {
-                isDone = true;
-                if (toAdd >= 1) {
-                    att(new MakeTempCardInHandAction(q, toAdd, true));
-                }
-            }
-        });
     }
 
     @Override
     public void onPyred(AbstractCard card) {
-        if (card.tags.contains(expansionContentMod.KINDLING)){
+        int toAdd = 0;
+        if (card.tags.contains(expansionContentMod.KINDLING)) {
             toAdd = this.magicNumber;
-        }else {
-            int result = freeToPlay() ? 0 : card.costForTurn;
-            if (card.cost == 0 && card.costForTurn == -1){
-                toAdd = EnergyPanel.getCurrentEnergy();
-            }
-            toAdd = result > 0 ? result : -1;
         }
+        int costResult = 0;
+        if (card.cost == 0 && card.costForTurn == -1) {
+            toAdd = EnergyPanel.getCurrentEnergy();
+        }
+        toAdd += costResult;
+        int finalToAdd = toAdd;
+
+        Shiv q = new Shiv();
+        if (this.upgraded){
+            q.upgrade();
+        }
+
+        DFL.atb(new LaterAction(()->{
+            att(new MakeTempCardInHandAction(q, finalToAdd, true));
+        }));
     }
 
     public void upp() {
-        upgradeDamage(3);
+        upgradeDamage(2);
 //        upgradeMagicNumber(1);
         thisShiv.upgrade();
         uDesc();

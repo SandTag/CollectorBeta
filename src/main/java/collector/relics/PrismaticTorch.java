@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import downfall.downfallMod;
 import downfall.util.TextureLoader;
 import expansioncontent.expansionContentMod;
 
@@ -30,14 +31,6 @@ public class PrismaticTorch extends CustomRelic {
     }
 
     @Override
-    public void atBattleStart() {
-//        flash();
-//        Ember em = new Ember();
-//        em.upgrade();
-//        makeInHand(em.makeStatEquivalentCopy(), 2);
-    }
-
-    @Override
     public void atTurnStart() {
         grayscale=false;
     }
@@ -48,12 +41,22 @@ public class PrismaticTorch extends CustomRelic {
     }
 
     @Override
+    public void update(){
+        super.update();
+        getUpdatedDescription();
+    }
+
+    @Override
     public void onExhaust(AbstractCard card) {
         if (card.tags.contains(expansionContentMod.KINDLING)) {
             if (!grayscale) {
                 flash();
                 this.grayscale = true;
-                atb(new DrawCardAction(2));
+                if (downfallMod.makeCollectorWorse) {
+                    atb(new DrawCardAction(2));
+                }else{
+                    atb(new GainReservesAction(1));
+                }
             }
         }
     }
@@ -94,6 +97,9 @@ public class PrismaticTorch extends CustomRelic {
             sb.append("[#").append(CollectorMod.characterColor.toString()).append("]");
         }
 
+        if (downfallMod.makeCollectorWorse){
+            return DESCRIPTIONS[0] + sb + DESCRIPTIONS[2];
+        }
         return DESCRIPTIONS[0] + sb + DESCRIPTIONS[1];
     }
 }

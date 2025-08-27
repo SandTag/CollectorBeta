@@ -43,8 +43,10 @@ public class TorchHeadPower extends AbstractCollectorPower implements NonStackab
                 break;
             case 4:
                 onAttackDraw += toAdd;
+                break;
             case 5:
                 onAttackFlex += toAdd;
+                break;
             default:
                 onAttackRandomDoom += toAdd;
                 System.out.println("Incorrect value for torchhead call power! Should be 0-3");

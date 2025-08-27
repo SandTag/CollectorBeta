@@ -18,7 +18,7 @@
   "collector:CollectionUITopPanel": {
     "TEXT": [
       "Collection",
-      "View all cards in your Collection. You can have up to 5 Collected cards. \n Gaining one after the 5th will require you to remove excess cards. \n Having collected cards provides a passive draw benefit.",
+      "View all cards in your Collection. \n Gaining more than 5 will require you to remove excess cards. \n Having unique collected cards provides a passive draw benefit.",
       "These cards start in your Collected pile each combat."
     ]
   },
@@ -101,6 +101,12 @@
   "collector:CharacterOption": {
     "TEXT": [
       "Essences: "
+    ]
+  },
+  "collector:ChallengeUIButton": {
+    "TEXT": [
+      "Challenge Mode - Dim Greenpyre",
+      "The collection no longer provides passive benefits and some relics are different. Recommended for experienced players looking for a more substantial challenge with the character."
     ]
   }
 }

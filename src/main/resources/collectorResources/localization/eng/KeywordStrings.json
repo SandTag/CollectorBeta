@@ -13,7 +13,7 @@
       "doom",
       "doomed"
     ],
-    "DESCRIPTION": "Doomed creatures lose HP at the start of their turn, then Doom is removed unless the creature is #yAfflicted (has both #yWeak and #yVulnerable [REMOVE_SPACE])."
+    "DESCRIPTION": "Doomed creatures lose HP at the start of their turn. Each turn Doom decays by half if the enemy is not #yWeak [REMOVE_SPACE], and half if they are not #yVulnerable [REMOVE_SPACE]."
   },
   {
     "ID": "pyre",

@@ -23,6 +23,6 @@ public class Billow extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeBlock(6);
+        upgradeBlock(5);
     }
 }

@@ -14,7 +14,7 @@ public class MawCard extends AbstractCollectibleCard {
 
     public MawCard() {
         super(ID, 3, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 20;
+        baseDamage = 24;
         baseMagicNumber = magicNumber = 3;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
