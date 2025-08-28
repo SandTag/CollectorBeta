@@ -15,9 +15,9 @@ public class RotwoodKindling extends AbstractCollectorCard {
     // intellij stuff skill, none, uncommon, , , , , 3, 2
 
     public RotwoodKindling() {
-        super(ID, -2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE);
+        super(ID, -2, CardType.SKILL, CardRarity.COMMON, CardTarget.NONE);
         baseMagicNumber = magicNumber = 1;
-        baseSecondMagic = secondMagic = 4;
+        baseSecondMagic = secondMagic = 3;
         tags.add(expansionContentMod.UNPLAYABLE);
         tags.add(expansionContentMod.KINDLING);
         this.selfRetain = true;

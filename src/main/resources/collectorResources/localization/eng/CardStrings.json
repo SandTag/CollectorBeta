@@ -37,7 +37,7 @@
   },
   "collector:BlackBindings": {
     "NAME": "Black Bindings",
-    "DESCRIPTION": "If the target has Weak apply !clm2! collector:Doom. NL Apply !M! Weak and collector:Doom."
+    "DESCRIPTION": "If the target has Weak, apply !clm2! collector:Doom. NL Apply !M! Weak and collector:Doom."
   },
   "collector:Blightning": {
     "NAME": "Blightning",
@@ -92,7 +92,7 @@
   },
   "collector:Darkstorm": {
     "NAME": "Darkstorm",
-    "DESCRIPTION": "Add !M! *Blightnings to your hand. NL Exhaust."
+    "DESCRIPTION": "Add !M! *Blightnings to your hand, draw pile and discard pile."
   },
   "collector:DarkwoodKindling": {
     "NAME": "Darkwillow Kindling",
@@ -302,8 +302,7 @@
   },
   "collector:MysteryWeaving": {
     "NAME": "Mystery Weaving",
-    "DESCRIPTION": "Gain !M! Block for each card in your hand. NL ",
-    "UPGRADE_DESCRIPTION": "Gain !M! Block for each card in your hand +!clm2!. NL ",
+    "DESCRIPTION": "Gain !M! Block for each card in your hand +!clm2!. NL ",
     "EXTENDED_DESCRIPTION": ["(Gain !B! Block.)"]
   },
   "collector:OakbrimKindling": {
@@ -403,8 +402,7 @@
   },
   "collector:SuckerPunch": {
     "NAME": "Sideswipe",
-    "DESCRIPTION": "Deal !D! damage and apply !M! Weak !clm2! times.",
-    "UPGRADE_DESCRIPTION": "Deal !D! damage and apply !M! Weak !clm2! times."
+    "DESCRIPTION": "Deal !D! damage and apply !M! Weak !clm2! times."
   },
   "collector:Suffering": {
     "NAME": "Suffering",
@@ -444,7 +442,7 @@
   },
   "collector:Whomp": {
     "NAME": "Torchbearer",
-    "DESCRIPTION": "Gain !M! expansioncontent:Temp_HP. NL Exhaust."
+    "DESCRIPTION": "Gain !M! expansioncontent:Temp_HP and !clm2! *Ember. NL Exhaust."
   },
   "collector:AcidSlimeCard": {
     "NAME": "Acid Slime",
@@ -462,7 +460,7 @@
   },
   "collector:BlueSlaverCard": {
     "NAME": "Blue Slaver",
-    "DESCRIPTION": "Deal !D! damage. NL Apply !M! Weak. NL Double the enemy's Weak."
+    "DESCRIPTION": "Deal !D! damage. if the enemy is Weakened deal !D! damage again."
   },
   "collector:BonfireSpiritsCard": {
     "NAME": "Bonfire Spirits",
@@ -511,7 +509,8 @@
   },
   "collector:DesignerInSpireCard": {
     "NAME": "Designer-In-Spire",
-    "DESCRIPTION": "collector:Torchhead gains: NL \"Draw 1 card next turn.\""
+    "DESCRIPTION": "Ethereal. collector:Pyre. NL Choose a card in hand you own, Upgrade it. [#ff9407]Permanently.[] NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "collector:Pyre. NL Choose a card in hand you own, Upgrade it. [#ff9407]Permanently.[] NL Exhaust."
   },
   "collector:FinalBossCard": {
     "NAME": "Neow's Fear",
@@ -560,7 +559,7 @@
   },
   "collector:JawWormCard": {
     "NAME": "Jaw Worm",
-    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Strength."
+    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Strength."
   },
   "collector:JousterCard": {
     "NAME": "Jouster",
@@ -588,7 +587,7 @@
   },
   "collector:MawCard": {
     "NAME": "The Maw",
-    "DESCRIPTION": "Deal !D! damage. NL Gain !M! Strength."
+    "DESCRIPTION": "Gain !B! Block. NL Gain !M! Strength."
   },
   "collector:MerchantCard": {
     "NAME": "Merchant",
@@ -693,7 +692,7 @@
   },
   "collector:ExploderCard": {
     "NAME": "Exploder Core",
-    "DESCRIPTION": "NL collector:Kindling. NL Deal !M! damage to ALL enemies. NL When Retained, damage increases by !clm2!.",
+    "DESCRIPTION": "collector:Kindling. NL Deal !M! damage to ALL enemies. NL When Retained, increase its damage by !clm2!.",
     "EXTENDED_DESCRIPTION": [
       "I must light this kindling to use it."
     ]
@@ -715,7 +714,7 @@
     "DESCRIPTION": "Gain !M! Strength."
   },
   "collector:SsserpentCard": {
-    "NAME": "Sssserpent",
+    "NAME": "Ssssserpent",
     "DESCRIPTION": "Deal !D! damage. NL Apply !M! collector:Doom. NL Add a *Doubt into your discard pile."
   },
   "collector:TaskmasterCard": {
@@ -738,7 +737,7 @@
   },
   "collector:VagrantCard": {
     "NAME": "Vagrant",
-    "DESCRIPTION": "Put a *Shame on top of your draw pile. NL Gain !M! collector:Reserve next turn. NL Exhaust."
+    "DESCRIPTION": "Put a *Shame on top of your draw pile. NL Gain !M! collector:Reserve next turn."
   },
   "collector:WomanInBlueCard": {
     "NAME": "Woman in Blue",
@@ -767,7 +766,7 @@
   },
   "collector:beginningCollectible": {
     "NAME": "Lil Essence",
-    "DESCRIPTION": "Innate. NL collector:Kindling. NL Apply !M! Weak to ALL enemies.",
+    "DESCRIPTION": "Innate. collector:Kindling. NL Apply !M! Weak to ALL enemies.",
     "UPGRADE_DESCRIPTION": "Innate. NL collector:Kindling. NL Apply !M! Weak to ALL enemies.",
     "EXTENDED_DESCRIPTION": [
       "I must light this kindling to use it."

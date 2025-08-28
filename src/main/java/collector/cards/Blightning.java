@@ -23,7 +23,7 @@ public class Blightning extends AbstractCollectorCard {
 
     public Blightning() {
         super(ID, 0, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY, CardColor.COLORLESS);
-        baseDamage = 2;
+        baseDamage = 3;
         baseMagicNumber = magicNumber = 2;
         this.secondMagic = baseSecondMagic = 1;
         exhaust = true;
@@ -33,8 +33,8 @@ public class Blightning extends AbstractCollectorCard {
     public void use(AbstractPlayer p, AbstractMonster m) {
         atb(new SFXAction("ORB_LIGHTNING_EVOKE"));
         atb(new VFXAction(new LightningEffect(m.drawX, m.drawY), 0.05F));
-        applyToEnemy(m, new DoomPower(m, magicNumber));
         dmg(m, AbstractGameAction.AttackEffect.NONE);
+        applyToEnemy(m, new DoomPower(m, magicNumber));
 //        atb(new DrawCardFromCollectionAction());
 //        atb(new NewDrawCollectiblesActionSet(false, secondMagic, true, AbstractDungeon.cardRandomRng));
         atb(new DrawCardAction(secondMagic));

@@ -26,9 +26,9 @@ public class DragonsTrove extends AbstractCollectorCard implements OnPyreCard, C
     // intellij stuff skill, self, rare, , , , , 2, 1
 
     public DragonsTrove() {
-        super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
+        super(ID, 0, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
         baseMagicNumber = magicNumber = 1;
-        baseSecondMagic = secondMagic = 3;
+        baseSecondMagic = secondMagic = 2;
         exhaust = true;
         isPyre();
         this.tags.add(SneckoMod.BANNEDFORSNECKO);

@@ -18,8 +18,11 @@
   "collector:CollectionUITopPanel": {
     "TEXT": [
       "Collection",
-      "View all cards in your Collection. \n Gaining more than 5 will require you to remove excess cards. \n Having unique collected cards provides a passive draw benefit.",
-      "These cards start in your Collected pile each combat."
+      "View all cards in your Collection.",
+      "These cards start in your draw pile each combat.",
+      "\n Gaining more than #b",
+      " will require you to remove excess cards.",
+      "\n Having unique collected cards provides a passive draw benefit."
     ]
   },
   "collector:CombatCollectionPileButton": {
@@ -105,8 +108,13 @@
   },
   "collector:ChallengeUIButton": {
     "TEXT": [
-      "Challenge Mode - Dim Greenpyre",
-      "The collection no longer provides passive benefits and some relics are different. Recommended for experienced players looking for a more substantial challenge with the character."
+      "Hoarder's Collection",
+      "The collection provides passive draw benefits as it did before. \n Relics are adjusted to best fit this experience while enabled."
+    ]
+  },
+  "collector:DesignerInSpireAction": {
+    "TEXT": [
+      "Choose a card to upgrade."
     ]
   }
 }

@@ -15,8 +15,8 @@ public class Misdirect extends AbstractCollectorCard {
     // intellij stuff skill, self, common, , , , , , 
 
     public Misdirect() {
-        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.ENEMY);
-        baseBlock = 6;
+        super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.ENEMY);
+        baseBlock = 3;
         this.magicNumber = baseMagicNumber = 1;
     }
 
@@ -28,7 +28,7 @@ public class Misdirect extends AbstractCollectorCard {
     }
 
     public void upp() {
-        upgradeBlock(3);
+        upgradeBlock(1);
         upgradeMagicNumber(1);
     }
 }

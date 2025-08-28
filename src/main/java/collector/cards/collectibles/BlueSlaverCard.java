@@ -20,25 +20,16 @@ public class BlueSlaverCard extends AbstractCollectibleCard {
 
     public BlueSlaverCard() {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 5;
-        baseMagicNumber = magicNumber = 1;
+        baseDamage = 7;
+        //baseMagicNumber = magicNumber = 1;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        dmg(m, AbstractGameAction.AttackEffect.SLASH_DIAGONAL);
-        applyToEnemy(m, new WeakPower(m, magicNumber, false));
-        atb(new AbstractGameAction() {
-            @Override
-            public void update() {
-                isDone = true;
-                if (m.hasPower(WeakPower.POWER_ID)) {
-                    int x = m.getPower(WeakPower.POWER_ID).amount;
-                    applyToEnemyTop(m, new WeakPower(m, x, false));
-                }
-            }
-        });
-
+        dmg(m, AbstractGameAction.AttackEffect.SLASH_VERTICAL);
+        if (m.hasPower(WeakPower.POWER_ID)) {
+            dmg(m, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL);
+        }
     }
 
     public void upp() {

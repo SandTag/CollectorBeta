@@ -22,6 +22,7 @@ import com.megacrit.cardcrawl.screens.MasterDeckViewScreen;
 import com.megacrit.cardcrawl.screens.SingleCardViewPopup;
 import com.megacrit.cardcrawl.screens.mainMenu.ScrollBar;
 import com.megacrit.cardcrawl.ui.panels.TopPanel;
+import downfall.downfallMod;
 import downfall.util.TextureLoader;
 import javassist.CtBehavior;
 
@@ -72,7 +73,12 @@ public class TopPanelExtraDeck extends TopPanelItem {
             render(sb, isClickable() ? Color.WHITE : Color.DARK_GRAY);
             FontHelper.renderFontRightTopAligned(sb, FontHelper.topPanelAmountFont, Integer.toString(CollectorCollection.collection.size()), this.x + 58.0F * Settings.scale, this.y + 25.0F * Settings.scale, Color.WHITE.cpy());
             if (getHitbox().hovered) {
-                TipHelper.renderGenericTip(getHitbox().x, tipYpos, uiStrings.TEXT[0], uiStrings.TEXT[1]);
+                CollectorCollection.testSize();
+                if (downfallMod.makeCollectorWorse) {
+                    TipHelper.renderGenericTip(getHitbox().x, tipYpos, uiStrings.TEXT[0], (uiStrings.TEXT[2] + uiStrings.TEXT[3] + CollectorCollection.MaxCollectionSize + uiStrings.TEXT[4]));
+                }else{
+                    TipHelper.renderGenericTip(getHitbox().x, tipYpos, uiStrings.TEXT[0], (uiStrings.TEXT[2] + uiStrings.TEXT[3] + CollectorCollection.MaxCollectionSize + uiStrings.TEXT[4] + uiStrings.TEXT[5]));
+                }
             }
         }
     }

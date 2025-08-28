@@ -22,8 +22,8 @@ public class ScrapOozeCard extends AbstractCollectibleCard {
 
     public ScrapOozeCard() {
         super(ID, 0, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF);
-        baseMagicNumber = magicNumber = 3;
-        baseSecondMagic = secondMagic = 2;
+        baseMagicNumber = magicNumber = 4;
+        baseSecondMagic = secondMagic = 4;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
         exhaust = true;
     }
@@ -35,7 +35,7 @@ public class ScrapOozeCard extends AbstractCollectibleCard {
 
 
     public void upp() {
-        upgradeMagicNumber(-1);
-        upgradeSecondMagic(1);
+        upgradeMagicNumber(-3);
+        //upgradeSecondMagic(1);
     }
 }

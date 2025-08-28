@@ -22,7 +22,7 @@
     "NAME": "Krampian Coal",
     "FLAVOR": "\"Intriguing! But why only specific chimneys?\" - Ranwid",
     "DESCRIPTIONS": [
-      "The first #b3 Collected cards you draw each combat that are not #yUpgraded is #yUpgraded [REMOVE_SPACE]."
+      "The first #b2 Collected cards you draw each combat that are not #yUpgraded is #yUpgraded [REMOVE_SPACE]."
     ]
   },
 
@@ -140,8 +140,8 @@
     "NAME": "Soul Extractor",
     "FLAVOR": "Energy only for those most determined.",
     "DESCRIPTIONS": [
-      "At the start of your turn, gain [E] [REMOVE_SPACE]. NL #yCollected cards #ystslib:Purge when played.",
-      "At the start of your turn, gain [E] [REMOVE_SPACE]. NL #yCollected cards are #ystslib:Grave [REMOVE_SPACE]."
+      "At the start of your turn, gain [E] if your Collection has no duplicate cards.",
+      "At the start of your turn, draw #b2 cards if your Collection has no duplicate cards."
     ]
   }
 }

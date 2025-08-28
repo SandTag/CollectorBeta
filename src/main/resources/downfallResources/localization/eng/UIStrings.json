@@ -67,8 +67,7 @@
 
       "Disable music overrides (requires game restart)",
       "Unlock all locked alternative skin for Downfall characters",
-      "Use icons instead of adding to text to cards for applied properties.",
-      "Make collector weaker by removing Hoarder's Draw."
+      "Use icons instead of adding to text to cards for applied properties."
     ]
   },
   "downfall:EnergyPanelTip": {

@@ -5,11 +5,10 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import hermit.util.Wiz;
 import sneckomod.SneckoMod;
-
 import static collector.CollectorMod.makeID;
 
+/*
 public class JousterCard extends AbstractCollectibleCard {
     public final static String ID = makeID(JousterCard.class.getSimpleName());
     // intellij stuff attack, enemy, uncommon, 12, 3, 12, 3, , 
@@ -39,3 +38,4 @@ public class JousterCard extends AbstractCollectibleCard {
         upgradeBlock(3);
     }
 }
+*/

@@ -21,7 +21,7 @@ public class VagrantCard extends AbstractCollectibleCard {
         baseMagicNumber = magicNumber = 2;
         cardsToPreview = new Shame();
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
-        this.exhaust = true;
+        //this.exhaust = true;
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {

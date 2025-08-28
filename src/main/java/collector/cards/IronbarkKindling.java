@@ -12,8 +12,8 @@ public class IronbarkKindling extends AbstractCollectorCard {
     // intellij stuff skill, none, uncommon, , , , , 3, 2
 
     public IronbarkKindling() {
-        super(ID, -2, CardType.SKILL, CardRarity.COMMON, CardTarget.NONE);
-        baseBlock = 7;
+        super(ID, -2, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.NONE);
+        baseBlock = 9;
         this.selfRetain = true;
         tags.add(expansionContentMod.UNPLAYABLE);
         tags.add(expansionContentMod.KINDLING);

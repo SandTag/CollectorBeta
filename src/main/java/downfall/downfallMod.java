@@ -335,7 +335,7 @@ public class downfallMod implements OnPlayerDamagedSubscriber, OnStartBattleSubs
         return "downfallResources/" + path;
     }
 
-    public static void saveData() {
+    public static void saveData() {//Save config data for downfall mode.
         try {
             if (bruhData == null) {
                 bruhData = new SpireConfig("downfall", "TrapSaveData");
@@ -744,13 +744,6 @@ public class downfallMod implements OnPlayerDamagedSubscriber, OnStartBattleSubs
                 unlockAllReskin();
             });
 
-            configPos -= configStep;
-            ModLabeledToggleButton badCollectorButton = new ModLabeledToggleButton(configStrings.TEXT[14], 350.0f, configPos, Settings.CREAM_COLOR, FontHelper.charDescFont, unlockAllReskin, settingsPanel, (label) -> {
-            }, (button) -> {
-                makeCollectorWorse = button.enabled;
-                saveData();
-            });
-
             settingsPanel.addUIElement(contentSharingBtnCurses);
             settingsPanel.addUIElement(contentSharingBtnEvents);
             settingsPanel.addUIElement(contentSharingBtnPotions);
@@ -762,14 +755,13 @@ public class downfallMod implements OnPlayerDamagedSubscriber, OnStartBattleSubs
             settingsPanel.addUIElement(noMusicBtn);
             settingsPanel.addUIElement(unlockAllSkinBtn);
             settingsPanel.addUIElement(characterModCrossoverBtn);
-            settingsPanel.addUIElement(badCollectorButton);
         }
 
         BaseMod.registerModBadge(badgeTexture, "downfall", "Downfall Team", "A very evil Expansion.", settingsPanel);
 
     }
 
-    public static void loadConfigData() {
+    public static void loadConfigData() {//Load config data for downfall settings.
         try {
             SpireConfig config = new SpireConfig("downfall", "downfallSaveData", configDefault);
             config.load();

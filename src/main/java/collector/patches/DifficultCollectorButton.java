@@ -29,8 +29,9 @@ public class DifficultCollectorButton {
 
                 sb.setColor(Color.WHITE);
                 sb.draw(ImageMaster.CHECKBOX, challengeIncreaseButton.cX - 32.0f + allTextInfoX, challengeIncreaseButton.cY - 32.0f , 32.0f, 32.0f, 64.0f, 64.0f, Settings.scale * (0.01f + (1.0f - 0.019f)), Settings.scale * (0.01f + (1.0f - 0.019f)), 0.0f, 0, 0, 64, 64, false, false);
-                if (downfallMod.makeCollectorWorse) {
+                if (!downfallMod.makeCollectorWorse) {//Collector has not been made worse.
                     sb.draw(ImageMaster.TICK, challengeIncreaseButton.cX - 32.0f + allTextInfoX, challengeIncreaseButton.cY - 32.0f , 32.0f, 32.0f, 64.0f, 64.0f, Settings.scale * (0.01f + (1.0f - 0.019f)), Settings.scale * (0.01f + (1.0f - 0.019f)), 0.0f, 0, 0, 64, 64, false, false);
+                    System.out.println("Current State: " + downfallMod.makeCollectorWorse);
                 }
                 FontHelper.renderSmartText(sb, FontHelper.tipHeaderFont, uiStrings.TEXT[0], challengeIncreaseButton.cX + 25f * Settings.scale + allTextInfoX, challengeIncreaseButton.cY, Settings.BLUE_TEXT_COLOR);
             }
@@ -58,7 +59,10 @@ public class DifficultCollectorButton {
                     }
                     if (challengeIncreaseButton.clicked) {
                         downfallMod.makeCollectorWorse = !downfallMod.makeCollectorWorse;
+                        System.out.println("Current State: " + downfallMod.makeCollectorWorse);
                         challengeIncreaseButton.clicked = false;
+                        downfallMod.saveData();//Actually saves this time!
+                        System.out.println("Current State: " + downfallMod.makeCollectorWorse);
                     }
                 }
             }

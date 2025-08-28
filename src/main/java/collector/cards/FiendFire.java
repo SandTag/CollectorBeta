@@ -10,8 +10,8 @@ public class FiendFire extends AbstractCollectorCard {
     public final static String ID = makeID(FiendFire.class.getSimpleName());
 
     public FiendFire() {
-        super(ID, 2, CardType.SKILL, CardRarity.RARE, CardTarget.ENEMY);
-        this.magicNumber = baseMagicNumber = 6;
+        super(ID, 3, CardType.SKILL, CardRarity.RARE, CardTarget.ENEMY);
+        this.magicNumber = baseMagicNumber = 7;
         exhaust = true;
     }
 
@@ -32,7 +32,7 @@ public class FiendFire extends AbstractCollectorCard {
 
     public void upp() {
 //        this.selfRetain = true;
-        upgradeMagicNumber(3);
+        upgradeMagicNumber(4);
         uDesc();
     }
 }

@@ -32,10 +32,7 @@ public class SuckerPunch extends AbstractCollectorCard {
     }
 
     public void upp() {
-//        upgradeDamage(2);
-//        upgradeMagicNumber(1);
-        upgradeDamage(1);
-        upgradeMagicNumber(1);
-        uDesc();
+        upgradeDamage(-2);
+        upgradeSecondMagic(1);
     }
 }

@@ -13,19 +13,20 @@ public class MawCard extends AbstractCollectibleCard {
     // intellij stuff attack, enemy, common, 40, 10, , , , 
 
     public MawCard() {
-        super(ID, 3, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
-        baseDamage = 24;
+        super(ID, 3, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
+        //baseDamage = 24;
+        baseBlock = 13;
         baseMagicNumber = magicNumber = 3;
         this.tags.add(SneckoMod.BANNEDFORSNECKO);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m) {
-        dmg(m, AbstractGameAction.AttackEffect.NONE);
+        blck();
         applyToSelf(new StrengthPower(p, this.magicNumber));
     }
 
     public void upp() {
-        upgradeDamage(8);
+        upgradeBlock(5);
         upgradeMagicNumber(1);
     }
 }
